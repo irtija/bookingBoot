@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Hotel Booking Order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+ 
+  <ion-list *ngFor="let conv of arr" #messagelist>
+    <ion-item *ngIf="conv.name == 'bot'" >
+      <ion-avatar item-start>
+        <img [src]="conv.imgurl">
+      </ion-avatar>
+
+      <div [ngClass]="{'bot': conv.name == 'Bot' }" >
+        <h2>{{conv.name}}</h2>
+        <p >{{conv.msg}}</p>
+      </div>
+    </ion-item>
+    <ion-item *ngIf="conv.name == 'you'" >
+      <ion-avatar item-end>
+        <img [src]="conv.imgurl">
+      </ion-avatar>
+      <div class="msg" [ngClass]="{'you': conv.name == 'You' }" >
+        <h2 style="float: right;">{{conv.name}}</h2>
+      <br>
+        <p style="white-space:normal;">{{conv.msg}}</p>
+      </div>
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-textarea class="textarea" placeholder="type a message..." (keydown)=check($event) [(ngModel)]="msg" name="msgs"></ion-textarea>
+      <!-- <ion-input placeholder="type a message..." [(ngModel)]="msg" name="msg" ng-submit="sendmessage()"></ion-input> -->
+    </ion-item>
+    <!-- <ion-button  end>check</ion-button> -->
+    <ion-buttons end>
+      <button ion-button (click)=sendMessage() end><ion-icon style="width: 30px;" name="ios-send-outline"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- </div> -->

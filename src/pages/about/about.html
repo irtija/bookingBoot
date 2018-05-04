@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Orders
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngFor="let order of arr" style="border-radius: 20px; background:whitesmoke">
+    <!-- <img src="../assets/images/hotel.jpg"/> -->
+  <ion-item style="text-align:center;">
+      <!-- <ion-icon name="ios-person-outline" item-start large></ion-icon> -->
+      <h1>{{order.name}}</h1>
+  </ion-item>
+  <ion-item>
+      <ion-icon name="ios-people-outline" item-start large></ion-icon>
+      <h2>{{order.guests}} persons</h2>
+  </ion-item>
+  <ion-item>
+      <ion-icon name="ios-calendar-outline" item-start large></ion-icon>
+      <h2>{{order['check-in']}}  to  {{order['check-out']}}</h2>
+  </ion-item>
+  <ion-item>
+      <ion-icon name="ios-locate-outline" item-start large></ion-icon>
+      <h2>{{order.destination}}</h2>
+  </ion-item>
+ 
+</ion-card>
+</ion-content>
